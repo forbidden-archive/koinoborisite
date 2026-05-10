@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenu.classList.toggle('open');
   });
 
-  // 3. カウントダウンタイマー (次回：2027年5月5日へ変更)
+  // 3. カウントダウンタイマー (次回：2027年5月5日へ)
   const targetDate = new Date('2027-05-05T00:00:00+09:00').getTime();
   
   function updateCountdown() {
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const distance = targetDate - now;
     const days = Math.ceil(distance / (1000 * 60 * 60 * 24));
     
-    // 常に日数を表示
     const displayStr = `${days}<span>日</span>`;
     document.getElementById('top-countdown').innerHTML = displayStr;
     const muCount = document.getElementById('mu-countdown');
@@ -105,5 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 6. スクロール時のフェードイン制御（追加）
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 });
