@@ -6,7 +6,7 @@
   <title>こい、のぼれ。 | 第一回相模原市</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,7 +25,6 @@
   <nav id="mobile-menu" class="mobile-menu">
     <ul>
       <li><a href="#" data-target="home">トップページ</a></li>
-      <li><a href="#" data-target="my-uroko">MYウロコ</a></li>
       <li><a href="#" data-target="map">地図</a></li>
       <li><a href="#" data-target="history">歴史</a></li>
       <li><a href="#" data-target="how-it-works">仕組み</a></li>
@@ -35,13 +34,16 @@
   </nav>
 
   <div class="side-tags">
-    <a href="#" data-target="my-uroko">MYウロコ</a>
-    <a href="#" data-target="map">地図</a>
-    <a href="#" data-target="history">歴史</a>
-    <a href="#" data-target="how-it-works">仕組み</a>
-    <a href="#" data-target="status">開催状況</a>
-    <a href="#" data-target="access">交通アクセス</a>
+    <a href="#" data-target="map" class="tag-map">地図</a>
+    <a href="#" data-target="history" class="tag-history">歴史</a>
+    <a href="#" data-target="how-it-works" class="tag-how">仕組み</a>
+    <a href="#" data-target="status" class="tag-status">開催状況</a>
+    <a href="#" data-target="access" class="tag-access">交通</a>
   </div>
+
+  <a href="#" data-target="my-uroko" class="uroko-float-btn">
+    <span>MY<br>ウロコ</span>
+  </a>
 
   <main id="app-container">
 
@@ -49,7 +51,6 @@
       <div class="top-nav-static">
         <img src="https://github.com/forbidden-archive/koinobori/blob/main/%E3%83%AD%E3%82%B3%E3%82%99.png?raw=true" alt="ロゴ" class="top-logo">
         <ul class="top-links">
-          <li><a href="#" data-target="my-uroko">MYウロコ</a></li>
           <li><a href="#" data-target="map">地図</a></li>
           <li><a href="#" data-target="history">歴史</a></li>
           <li><a href="#" data-target="how-it-works">仕組み</a></li>
@@ -76,16 +77,8 @@
         </div>
 
         <div class="countdown-sec fade-in-scroll">
-          <p>再び相模川を泳ぐまで</p>
+          <p>次回、相模川を泳ぐまで</p>
           <div class="countdown-timer" id="top-countdown">--<span>日</span></div>
-        </div>
-
-        <div class="news-sec fade-in-scroll">
-          <h3>NEWS</h3>
-          <ul>
-            <li><span>2026.04.01</span> ハガキの全戸配布が完了しました。</li>
-            <li><span>2026.03.15</span> 第一回「こい、のぼれ。」プロジェクト始動。</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -93,39 +86,32 @@
     <section id="my-uroko" class="view">
       <div class="content-wrapper page-padding">
         <h2 class="page-title">MYウロコ</h2>
-        
         <div class="countdown-sec small">
-          <p>泳ぐまで</p>
+          <p>次回、泳ぐまで</p>
           <div class="countdown-timer" id="mu-countdown">--<span>日</span></div>
         </div>
-
         <div class="district-stats fade-in-scroll">
           <h3>あなたの地域：田名（堀之内地区）</h3>
           <p>現在の参加人数: <span class="highlight-num">482</span> 人</p>
           <p>生み出される鯉のぼり: <span class="highlight-num">4</span> 匹予定</p>
           <div class="progress-bar"><div class="fill" style="width: 80%;"></div></div>
-          <p class="caption">※人数が増えるほど鯉が増えます！</p>
         </div>
-
         <div class="registration-sec fade-in-scroll">
           <h3>家族の鱗を登録する</h3>
           <form id="uroko-form">
             <input type="text" id="nickname" placeholder="ニックネーム (例: お父さん)" required>
             <button type="submit" class="btn-primary">登録</button>
           </form>
-          <ul id="family-list" class="family-list">
-            </ul>
+          <ul id="family-list" class="family-list"></ul>
         </div>
-
         <div class="scan-sec fade-in-scroll">
           <h3>鱗スキャン＆グッズ化</h3>
-          <p>完成した鱗をスキャンして、オリジナルステッカーやキーホルダーにできます。</p>
+          <p>完成した鱗をスキャンして、オリジナルグッズにできます。</p>
           <label class="btn-camera">
             <input type="file" accept="image/*" capture="environment" id="camera-input">
             📸 カメラで鱗をスキャンする
           </label>
         </div>
-
         <div class="gallery-sec fade-in-scroll">
           <h3>みんなの鱗ギャラリー</h3>
           <div class="gallery-grid" id="gallery-grid">
@@ -140,9 +126,9 @@
     <section id="map" class="view">
       <div class="content-wrapper page-padding">
         <h2 class="page-title">地図</h2>
-        <p class="subtitle">相模原市中央区田名 高田橋付近</p>
-        <div class="map-container fade-in-scroll">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12988.636603517454!2d139.32431471370213!3d35.52445899786439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018fdf987d6928b%3A0xc3af00a98f1f0d36!2z6auY55Sw5qmL!5e0!3m2!1sja!2sjp!4v1715000000000!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <p class="subtitle text-center">相模原市中央区田名 高田橋付近</p>
+        <div class="map-container fade-in-scroll" style="margin-top: 30px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12992.518889158655!2d139.3248301!3d35.5398282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018fda020ebcdb5%3A0x88981dfc6e949110!2z6auY55Sw5qmL!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
     </section>
@@ -157,7 +143,6 @@
           <br>
           <p><strong>今度は「みんなの手で」取り戻す</strong></p>
           <p>川はまだ、そこにあります。風景を失ったままにしておくのではなく、私たちはシステムそのものを再設計しました。「誰かが頑張る」のではなく、「全員が少しずつ担い手になる」仕組みです。</p>
-          <p>各家庭から集まったハガキ大の鱗をつなぎ合わせ、新しい鯉を生み出す。それは、かつての風景の単なる復活ではなく、これからの時代を生きるための、新しい地域文化の形なのです。</p>
         </div>
       </div>
     </section>
@@ -167,35 +152,19 @@
         <h2 class="page-title">仕組み</h2>
         <div class="steps-vertical">
           <div class="step-card fade-in-scroll">
-            <div class="step-info">
-              <span class="num">01</span>
-              <h3>ポストに届く</h3>
-              <p>自治会から鱗型ハガキが届きます。</p>
-            </div>
+            <div class="step-info"><span class="num">01</span><h3>ポストに届く</h3><p>自治会から鱗型ハガキが届きます。</p></div>
             <div class="img-placeholder">写真/イラストが入ります</div>
           </div>
           <div class="step-card fade-in-scroll">
-            <div class="step-info">
-              <span class="num">02</span>
-              <h3>自由に描く</h3>
-              <p>切り取り線を気にせずデコレーションします。</p>
-            </div>
+            <div class="step-info"><span class="num">02</span><h3>自由に描く</h3><p>切り取り線を気にせずデコレーションします。</p></div>
             <div class="img-placeholder">写真/イラストが入ります</div>
           </div>
           <div class="step-card fade-in-scroll">
-            <div class="step-info">
-              <span class="num">03</span>
-              <h3>破って送る</h3>
-              <p>手で破り、左半分をポストへ投函します。</p>
-            </div>
+            <div class="step-info"><span class="num">03</span><h3>破って送る</h3><p>手で破り、左半分をポストへ投函します。</p></div>
             <div class="img-placeholder">写真/イラストが入ります</div>
           </div>
           <div class="step-card fade-in-scroll">
-            <div class="step-info">
-              <span class="num">04</span>
-              <h3>川で探す</h3>
-              <p>5月5日、右半分を持って川へ行き自分の鱗を探します。</p>
-            </div>
+            <div class="step-info"><span class="num">04</span><h3>川で探す</h3><p>5月5日、右半分を持って川へ行き自分の鱗を探します。</p></div>
             <div class="img-placeholder">写真/イラストが入ります</div>
           </div>
         </div>
@@ -219,8 +188,8 @@
         <h2 class="page-title">交通アクセス</h2>
         <div class="access-info fade-in-scroll">
           <h3>相模川 田名 高田橋付近</h3>
-          <ul>
-            <li><strong>バスでお越しの方</strong><br>JR横浜線「相模原駅」南口、または「橋本駅」南口からバス「水郷田名」行き終点下車、徒歩数分。</li>
+          <ul style="margin-top: 20px;">
+            <li style="margin-bottom: 20px;"><strong>バスでお越しの方</strong><br>JR横浜線「相模原駅」南口、または「橋本駅」南口からバス「水郷田名」行き終点下車、徒歩数分。</li>
             <li><strong>お車でお越しの方</strong><br>高田橋河川敷に臨時駐車場（約1000台）を用意予定ですが、大変混雑します。公共交通機関のご利用をお願いいたします。</li>
           </ul>
         </div>
@@ -228,7 +197,6 @@
     </section>
 
   </main>
-
   <script src="main.js"></script>
 </body>
 </html>
