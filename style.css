@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 :root {
-  /* リファレンスに合わせた、より上品な和紙のような色設定 */
   --bg-color: #fcfbf8;
+  --header-bg: rgba(252, 251, 248, 0.95); /* ヘッダーを少し透けさせる */
   --text-color: #1a1a1a;
   --accent-color: #c44b2b;
   --border-color: rgba(26, 26, 26, 0.15);
@@ -15,20 +15,25 @@
   box-sizing: border-box;
 }
 
+/* スムーズスクロールを有効化 */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* ヘッダーの高さ分だけずらす */
+}
+
 body {
   font-family: var(--font-serif);
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 2.4; /* 行間をさらに広く */
-  letter-spacing: 0.15em; /* 文字間を空けて上品に */
+  line-height: 2.4;
+  letter-spacing: 0.15em;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 /* --- Utilities & Animations --- */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px); /* 移動距離を少し長めに */
+  transform: translateY(30px);
   transition: opacity 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .fade-in.is-visible {
@@ -38,7 +43,49 @@ body {
 .accent-text { color: var(--accent-color); }
 .text-center { text-align: center; }
 
-/* --- Hero Section --- */
+/* --- Global Header (常に上部に固定) --- */
+.header-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+}
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo img {
+  height: 35px; /* ロゴの高さ調整 */
+  mix-blend-mode: multiply; /* 背景に馴染ませる */
+}
+#nav-main .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+#nav-main .nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  transition: color 0.3s;
+}
+#nav-main .nav-links a:hover {
+  color: var(--accent-color);
+}
+
+/* --- Hero Section (背景画像を表示) --- */
 .hero {
   height: 100vh;
   display: flex;
@@ -46,27 +93,30 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  /* ※ここに鯉のぼりの画像を差し込んでください */
+  background-image: url('YOUR_IMAGE_URL.jpg'); 
+  background-size: cover;
+  background-position: center;
+  margin-top: 80px; /* ヘッダーの高さ分下げる */
 }
+/* ヘッダー同様の空色グラデーションをオーバーレイ */
 .hero::after {
-  /* 空色の淡いグラデーションを上部のみに配置 */
   content: '';
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 50vh;
+  top: 0; left: 0; width: 100%; height: 100%;
   background: linear-gradient(to bottom, #dbebf0 0%, rgba(252,251,248,0) 100%);
-  z-index: -1;
+  z-index: 1;
+  opacity: 0.7; /* 背景画像が見えるように透けさせる */
 }
+.hero-content { z-index: 2; position: relative; }
+
 .badge {
   font-size: 0.85rem;
   letter-spacing: 0.2em;
   margin-bottom: 30px;
 }
-.logo-text {
-  font-size: 2.8rem;
-  font-weight: 300; /* 太字をやめ、細く繊細に */
-  letter-spacing: 0.2em;
-}
 
-/* スクロールインジケーター（極細の線） */
+/* スクロールインジケーター（z-indexを上げる） */
 .scroll-indicator {
   position: absolute;
   bottom: 50px;
@@ -75,6 +125,7 @@ body {
   align-items: center;
   font-size: 0.6rem;
   letter-spacing: 0.3em;
+  z-index: 2;
 }
 .scroll-indicator .line {
   width: 1px;
@@ -91,14 +142,23 @@ body {
   100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* --- Statement Section --- */
-.statement {
-  padding: 150px 20px;
-  display: flex;
-  justify-content: center;
+/* --- 各セクションの余白調整 --- */
+.statement, .how-it-works, .map, .history, .cta, .info {
+  padding: 120px 20px;
 }
+
+/* 暫定セクションのスタイル */
+.map p, .history p {
+  color: var(--sub-text);
+  font-size: 0.9rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Statement Section --- */
 .statement-container {
   max-width: 600px;
+  margin: 0 auto;
   text-align: center;
 }
 .statement-container p {
@@ -112,7 +172,6 @@ body {
 
 /* --- How it works Section --- */
 .how-it-works {
-  padding: 100px 20px;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -127,14 +186,14 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 60px;
-  border-top: 1px solid var(--border-color); /* 花火サイトのような区切り線 */
+  border-top: 1px solid var(--border-color);
   padding-top: 60px;
 }
 .step-num {
   font-size: 1.2rem;
   color: var(--accent-color);
   margin-bottom: 15px;
-  font-family: Helvetica, sans-serif; /* 数字だけシャープに */
+  font-family: Helvetica, sans-serif;
 }
 .step h3 {
   font-size: 1.1rem;
@@ -147,15 +206,12 @@ body {
 }
 
 /* --- CTA Section --- */
-.cta {
-  padding: 150px 20px;
-  text-align: center;
-}
 .cta-content {
   max-width: 600px;
   margin: 0 auto;
-  border: 1px solid var(--border-color); /* 繊細な枠線 */
+  border: 1px solid var(--border-color);
   padding: 80px 40px;
+  text-center;
 }
 .cta-content h2 {
   font-size: 1.2rem;
@@ -167,6 +223,9 @@ body {
   margin-bottom: 40px;
   font-size: 0.9rem;
   color: #4a4a4a;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 .btn-primary {
   display: inline-block;
@@ -184,14 +243,13 @@ body {
 
 /* --- Info Section --- */
 .info {
-  padding: 100px 20px 150px;
   max-width: 800px;
   margin: 0 auto;
 }
 .info-table {
   width: 100%;
   border-collapse: collapse;
-  border-top: 1px solid var(--text-color); /* 上下の太い線で締める */
+  border-top: 1px solid var(--text-color);
   border-bottom: 1px solid var(--text-color);
 }
 .info-table th, .info-table td {
