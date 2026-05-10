@@ -1,0 +1,243 @@
+:root {
+  --bg-color: #f5efe4;
+  --text-color: #1e140c;
+  --accent-color: #c44b2b;
+  --sky-color: #c8e4f0;
+  --sub-text: #8a7060;
+  --font-serif: 'Noto Serif JP', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+/* --- Utilities & Animations --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.accent-text { color: var(--accent-color); }
+
+/* --- Hero Section --- */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, var(--sky-color) 0%, var(--bg-color) 100%);
+  position: relative;
+}
+.badge {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--sub-text);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.logo-text {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  mix-blend-mode: multiply;
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--sub-text);
+}
+.scroll-indicator .line {
+  width: 1px;
+  height: 60px;
+  background-color: var(--sub-text);
+  margin-top: 10px;
+}
+
+/* --- Statement Section --- */
+.statement {
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
+}
+.statement-container {
+  max-width: 600px;
+  text-align: center;
+}
+.statement-container p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+}
+.highlight-statement {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 4rem;
+}
+
+/* --- How it works Section --- */
+.how-it-works {
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.section-title {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 60px;
+}
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+}
+.step-num {
+  font-size: 2rem;
+  color: var(--accent-color);
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+.step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* --- CTA Section --- */
+.cta {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  padding: 100px 20px;
+  text-align: center;
+}
+.cta-features {
+  list-style: none;
+  margin: 30px 0;
+  color: #a9a098;
+}
+.btn-primary {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  padding: 15px 40px;
+  text-decoration: none;
+  border-radius: 50px;
+  letter-spacing: 0.1em;
+  transition: opacity 0.3s;
+}
+.btn-primary:hover { opacity: 0.8; }
+
+/* --- Info Section --- */
+.info {
+  padding: 100px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.info-table th, .info-table td {
+  padding: 20px 10px;
+  border-bottom: 1px solid rgba(30, 20, 12, 0.1);
+  text-align: left;
+}
+.info-table th {
+  width: 100px;
+  color: var(--sub-text);
+  font-weight: 400;
+}
+
+/* --- Footer --- */
+.footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--sub-text);
+}
+.footer-logo { font-size: 1.2rem; margin-bottom: 10px; }
+
+/* =========================================
+   MY Uroko Page (Mobile First UI)
+========================================= */
+.my-uroko-page {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.mu-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(30, 20, 12, 0.1);
+}
+.mu-logo { font-weight: 700; }
+.mu-area { font-size: 0.8rem; color: var(--sub-text); }
+.mu-main { flex: 1; padding: 40px 20px; }
+.mu-visual { text-align: center; margin-bottom: 50px; }
+
+/* 簡易的な鱗の並びと、命の鼓動（Heartbeat）アニメーション */
+.scale-pattern {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  max-width: 200px;
+  margin: 0 auto 30px auto;
+}
+.scale {
+  width: 40px; height: 40px;
+  background-color: rgba(30, 20, 12, 0.1);
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg);
+}
+.scale.highlight { background-color: var(--accent-color); }
+.scale.family { background-color: #7ca8b8; }
+.heartbeat {
+  animation: heartbeat 2s infinite;
+}
+@keyframes heartbeat {
+  0% { transform: rotate(45deg) scale(1); }
+  10% { transform: rotate(45deg) scale(1.1); }
+  20% { transform: rotate(45deg) scale(1); }
+}
+
+.mu-countdown { text-align: center; margin-bottom: 40px; }
+.days { font-size: 4rem; font-weight: 700; color: var(--accent-color); line-height: 1; }
+.days span { font-size: 1.2rem; color: var(--text-color); }
+
+.mu-tabs { display: flex; border-bottom: 1px solid rgba(30, 20, 12, 0.1); margin-bottom: 20px; }
+.tab { flex: 1; text-align: center; padding: 10px; color: var(--sub-text); }
+.tab.active { color: var(--text-color); border-bottom: 2px solid var(--text-color); font-weight: 700; }
+.family-list { list-style: none; }
+.family-list li { margin-bottom: 15px; font-size: 0.9rem; }
+.color-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; }
+
+.mu-footer {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  text-align: center;
+  padding: 30px 20px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
