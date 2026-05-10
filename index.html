@@ -64,11 +64,13 @@
           <source src="https://github.com/forbidden-archive/koinobori/raw/refs/heads/main/%E9%AF%89%E3%81%AE%E3%81%BB%E3%82%99%E3%82%8A%E5%8B%95%E7%94%BB.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
-        <img src="https://github.com/forbidden-archive/koinobori/blob/main/%E3%83%AD%E3%82%B3%E3%82%99.png?raw=true" alt="こい、のぼれ。" class="hero-center-logo">
+        <div class="hero-center-logo-wrapper">
+          <img src="https://github.com/forbidden-archive/koinobori/blob/main/%E3%83%AD%E3%82%B3%E3%82%99.png?raw=true" alt="こい、のぼれ。" class="hero-center-logo">
+        </div>
       </div>
 
       <div class="content-wrapper">
-        <div class="statement fade-in-scroll">
+        <div class="statement fade-in">
           <p>相模川の鯉が、のぼらなくなった。</p>
           <p>担い手が足りなくなったのだ。<br>でも川はまだそこにある。</p>
           <p>みんなが描いた一枚一枚が鱗になり、<br>集まれば一匹の鯉のぼりが川に泳ぐ。</p>
@@ -76,27 +78,35 @@
           <p class="highlight">こい、川に。のぼれ、もう一度。</p>
         </div>
 
-        <div class="countdown-sec fade-in-scroll">
+        <div class="countdown-sec fade-in">
           <p>次回、相模川を泳ぐまで</p>
           <div class="countdown-timer" id="top-countdown">--<span>日</span></div>
+        </div>
+
+        <div class="news-sec fade-in">
+          <h3>NEWS</h3>
+          <ul>
+            <li><span>2026.04.01</span> ハガキの全戸配布が完了しました。</li>
+            <li><span>2026.03.15</span> 第一回「こい、のぼれ。」プロジェクト始動。</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section id="my-uroko" class="view">
       <div class="content-wrapper page-padding">
-        <h2 class="page-title">MYウロコ</h2>
-        <div class="countdown-sec small">
+        <h2 class="page-title fade-in">MYウロコ</h2>
+        <div class="countdown-sec small fade-in">
           <p>次回、泳ぐまで</p>
           <div class="countdown-timer" id="mu-countdown">--<span>日</span></div>
         </div>
-        <div class="district-stats fade-in-scroll">
+        <div class="district-stats fade-in">
           <h3>あなたの地域：田名（堀之内地区）</h3>
           <p>現在の参加人数: <span class="highlight-num">482</span> 人</p>
           <p>生み出される鯉のぼり: <span class="highlight-num">4</span> 匹予定</p>
           <div class="progress-bar"><div class="fill" style="width: 80%;"></div></div>
         </div>
-        <div class="registration-sec fade-in-scroll">
+        <div class="registration-sec fade-in">
           <h3>家族の鱗を登録する</h3>
           <form id="uroko-form">
             <input type="text" id="nickname" placeholder="ニックネーム (例: お父さん)" required>
@@ -104,7 +114,7 @@
           </form>
           <ul id="family-list" class="family-list"></ul>
         </div>
-        <div class="scan-sec fade-in-scroll">
+        <div class="scan-sec fade-in">
           <h3>鱗スキャン＆グッズ化</h3>
           <p>完成した鱗をスキャンして、オリジナルグッズにできます。</p>
           <label class="btn-camera">
@@ -112,7 +122,7 @@
             📸 カメラで鱗をスキャンする
           </label>
         </div>
-        <div class="gallery-sec fade-in-scroll">
+        <div class="gallery-sec fade-in">
           <h3>みんなの鱗ギャラリー</h3>
           <div class="gallery-grid" id="gallery-grid">
             <div class="gallery-item"><div class="dummy-img bg-red"></div><p>たかし</p></div>
@@ -125,18 +135,18 @@
 
     <section id="map" class="view">
       <div class="content-wrapper page-padding">
-        <h2 class="page-title">地図</h2>
-        <p class="subtitle text-center">相模原市中央区田名 高田橋付近</p>
-        <div class="map-container fade-in-scroll" style="margin-top: 30px;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12992.518889158655!2d139.3248301!3d35.5398282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018fda020ebcdb5%3A0x88981dfc6e949110!2z6auY55Sw5qmL!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <h2 class="page-title fade-in">地図</h2>
+        <p class="subtitle text-center fade-in">相模原市中央区田名 高田橋付近</p>
+        <div class="map-container fade-in" style="margin-top: 30px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12993.421453229864!2d139.32421375!3d35.5412402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018fd7d3c52a51f%3A0xc546abf43e5c9b74!2z6auY55Sw5qmL!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
     </section>
 
     <section id="history" class="view">
       <div class="content-wrapper page-padding">
-        <h2 class="page-title">歴史</h2>
-        <div class="history-content fade-in-scroll">
+        <h2 class="page-title fade-in">歴史</h2>
+        <div class="history-content fade-in">
           <p><strong>失われた風物詩「泳げ鯉のぼり相模川」</strong></p>
           <p>1988年から長年、相模原市中央区田名の高田橋付近では、春になると1200匹もの鯉のぼりが相模川の上空を舞う「泳げ鯉のぼり相模川」が開催されていました。相模原を代表する圧倒的な風景でした。</p>
           <p>しかし、巨大なワイヤーを張り巡らせる過酷な作業は、一部の有志ボランティアの献身によって支えられていました。担い手の高齢化と人手不足、そして時代の変化により、惜しまれつつもその歴史に幕を下ろしました。</p>
@@ -149,21 +159,21 @@
 
     <section id="how-it-works" class="view">
       <div class="content-wrapper page-padding">
-        <h2 class="page-title">仕組み</h2>
+        <h2 class="page-title fade-in">仕組み</h2>
         <div class="steps-vertical">
-          <div class="step-card fade-in-scroll">
+          <div class="step-card fade-in">
             <div class="step-info"><span class="num">01</span><h3>ポストに届く</h3><p>自治会から鱗型ハガキが届きます。</p></div>
             <div class="img-placeholder">写真/イラストが入ります</div>
           </div>
-          <div class="step-card fade-in-scroll">
+          <div class="step-card fade-in">
             <div class="step-info"><span class="num">02</span><h3>自由に描く</h3><p>切り取り線を気にせずデコレーションします。</p></div>
             <div class="img-placeholder">写真/イラストが入ります</div>
           </div>
-          <div class="step-card fade-in-scroll">
+          <div class="step-card fade-in">
             <div class="step-info"><span class="num">03</span><h3>破って送る</h3><p>手で破り、左半分をポストへ投函します。</p></div>
             <div class="img-placeholder">写真/イラストが入ります</div>
           </div>
-          <div class="step-card fade-in-scroll">
+          <div class="step-card fade-in">
             <div class="step-info"><span class="num">04</span><h3>川で探す</h3><p>5月5日、右半分を持って川へ行き自分の鱗を探します。</p></div>
             <div class="img-placeholder">写真/イラストが入ります</div>
           </div>
@@ -173,8 +183,8 @@
 
     <section id="status" class="view">
       <div class="content-wrapper page-padding text-center">
-        <h2 class="page-title">開催状況</h2>
-        <div class="fade-in-scroll">
+        <h2 class="page-title fade-in">開催状況</h2>
+        <div class="fade-in">
           <p class="status-large">現在、鱗の回収期間中です。</p>
           <p><strong>全体回収率: 68%</strong> (目標10,000枚)</p>
           <div class="progress-bar" style="margin: 20px auto;"><div class="fill" style="width: 68%;"></div></div>
@@ -185,8 +195,8 @@
 
     <section id="access" class="view">
       <div class="content-wrapper page-padding">
-        <h2 class="page-title">交通アクセス</h2>
-        <div class="access-info fade-in-scroll">
+        <h2 class="page-title fade-in">交通アクセス</h2>
+        <div class="access-info fade-in">
           <h3>相模川 田名 高田橋付近</h3>
           <ul style="margin-top: 20px;">
             <li style="margin-bottom: 20px;"><strong>バスでお越しの方</strong><br>JR横浜線「相模原駅」南口、または「橋本駅」南口からバス「水郷田名」行き終点下車、徒歩数分。</li>
